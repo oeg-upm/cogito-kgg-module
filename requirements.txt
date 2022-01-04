@@ -1,3 +1,5 @@
 requests
 stellar-base-sseclient
 SPARQLWrapper
+wheezy.template
+flask

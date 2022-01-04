@@ -11,6 +11,7 @@ class TM_Controller:
         self.graph_file_path = ""
         self.file_name = json_info['name']
         self.file_format = json_info['format']
+        self.container_TD = "https://wothive.linkeddata.es/api/things/" + self.container_uuid
         self.file_raw = ""
 
 
@@ -31,3 +32,15 @@ class TM_Controller:
         response = requests.post(url, headers=headers, data=payload, files=files, verify=False)
         print(response.text)
         os.remove(graph_file_path)
+
+    def create_graph_TDs(self):
+        # describir query = """
+        # SELECT ?s ?type ?label ?description
+        # WHERE{
+        #   ?s ?p ?o.
+        #   OPTIONAL { ?s a ?type .}
+        #   OPTIONAL { ?s rdfs:label ?label .}
+        #   OPTIONAL { ?s rdfs:description ?description .}
+        # }
+        # """
+        pass

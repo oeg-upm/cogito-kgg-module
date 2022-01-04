@@ -4,6 +4,7 @@ sys.path.append("..")
 from Controllers.TM_Controller import TM_Controller
 from Controllers.Triple_Store_Controller import Triple_Store_Controller
 from Controllers.Generate_IDF_Graph import Generate_IDF_Graph
+from Services.Graph_generator_service import Graph_Generator
 
 def evaluator(msg):
     tm_controller = TM_Controller(json.loads(msg[2]))
@@ -28,6 +29,8 @@ def evaluator(msg):
         # End
         else:
             #Execute Helio
+            graph_generator = Graph_Generator()
+            graph_generator.generate_graph_helio()
             pass
 
     else:
