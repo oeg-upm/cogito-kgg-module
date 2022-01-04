@@ -1,6 +1,4 @@
-import tempfile
 from sseclient import SSEClient
-import json
 from Services.KGG_manager_service import evaluator
 
 

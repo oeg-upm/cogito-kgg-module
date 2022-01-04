@@ -1,5 +1,5 @@
 import subprocess
-from SPARQLWrapper import SPARQLWrapper, JSON, POST, DIGEST
+# from SPARQLWrapper import SPARQLWrapper, JSON, POST, DIGEST
 
 
 class Triple_Store_Controller:
