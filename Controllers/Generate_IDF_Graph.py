@@ -39,7 +39,5 @@ class Generate_IDF_Graph:
         try:
             self.files = [('file',(file_path,open(file_path, 'rb'),'application/octet-stream'))]
             self.generate_graph()
-            #graph = open("Files_Storage/Bloque A.ttl", "r")
-            #self.raw_graph = graph.read()
         finally:
             os.remove(file_path)

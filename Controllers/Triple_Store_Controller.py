@@ -1,5 +1,4 @@
 import subprocess
-# from SPARQLWrapper import SPARQLWrapper, JSON, POST, DIGEST
 
 
 class Triple_Store_Controller:
@@ -66,6 +65,3 @@ class Triple_Store_Controller:
         else:
             print(["You did something wrong", 500])
 
-
-    def execute_sparql_query(self, query):
-        pass

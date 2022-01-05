@@ -34,13 +34,4 @@ class TM_Controller:
         os.remove(graph_file_path)
 
     def create_graph_TDs(self):
-        # describir query = """
-        # SELECT ?s ?type ?label ?description
-        # WHERE{
-        #   ?s ?p ?o.
-        #   OPTIONAL { ?s a ?type .}
-        #   OPTIONAL { ?s rdfs:label ?label .}
-        #   OPTIONAL { ?s rdfs:description ?description .}
-        # }
-        # """
         pass
