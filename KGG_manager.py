@@ -5,11 +5,14 @@ from Services.KGG_manager_service import evaluator
 def kgg_manager():
     url = "http://localhost:8080/sse"
     messages = SSEClient(url)
+    
     for msg in messages:
         msg_list = msg.data.split(';')
         if msg_list[0] == "file": # If not file in event pass
+            print("Creating/Deleting")
             evaluator(msg_list)
         else:
+            print("Not file event")
             pass
             # Not a file
         

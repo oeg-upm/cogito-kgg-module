@@ -23,12 +23,13 @@ class TM_Controller:
     def add_graph_file(self): # Add graph file to the container
         graph_file_path = "Files_Storage/" + self.file_name + ".ttl"
                 
-        url = self.url + "/containers/" + self.container_uuid + "/files"
+        url = self.url + "/containers/" + self.container_uuid + "/files/" + self.file_uuid
         files=[
             ('file',(self.file_name + ".ttl",open(graph_file_path,'rb'),'application/octet-stream'))
         ]
         headers = {}
         payload = {}
+        print(url)
         response = requests.post(url, headers=headers, data=payload, files=files, verify=False)
         print(response.text)
         os.remove(graph_file_path)
