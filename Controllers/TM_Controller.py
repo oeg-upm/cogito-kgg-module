@@ -5,7 +5,7 @@ import os
 class TM_Controller:
 
     def __init__(self, json_info):
-        self.url = "http://localhost:8080"
+        self.url = "http://localhost:5000"
         self.file_uuid = json_info['uuid']
         self.container_uuid = json_info['container']
         self.graph_file_path = ""
