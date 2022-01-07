@@ -1,0 +1,8 @@
+version: '2'
+services:
+  thing-manager:
+    image: acimmino/thing-manager:latest
+    #volumes:
+    # - ./wothive/configuration.json:/usr/src/wothive/configuration.json
+    ports:
+      - '8080:8080'
