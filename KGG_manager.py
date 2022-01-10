@@ -1,16 +1,24 @@
 from sseclient import SSEClient
 from Services.KGG_manager_service import evaluator
+import configparser
+import sys
+sys.stdout.flush()
 
 
 def kgg_manager():
-    url = "http://127.0.0.1:8080/sse"
+
+    parser = configparser.ConfigParser()
+    parser.read('kgg_manager.config')
+    sse_url = parser.get("config","sse_url")
+
+    url = sse_url
     messages = SSEClient(url)
     
     for msg in messages:
         msg_list = msg.data.split(';')
         if msg_list[0] == "file": # If not file in event pass
             print("Creating/Deleting")
-            evaluator(msg_list)
+            evaluator(msg_list, parser)
         else:
             print("Not file event")
             pass
@@ -18,7 +26,14 @@ def kgg_manager():
         
 
 if __name__ == '__main__':
-    kgg_manager()
+    while True:
+        try:
+            print("KGG Process Started")
+            kgg_manager()
+            print("KGG Process Ended")
+        except:
+            print("Restarting SSE Client")
+            pass
 
 
 

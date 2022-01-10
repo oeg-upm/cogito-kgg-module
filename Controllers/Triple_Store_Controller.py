@@ -1,13 +1,15 @@
 import subprocess
-
+import sys
+sys.stdout.flush()
 
 class Triple_Store_Controller:
 
-    def __init__(self, uuid, file_name, container_uuid):
+    def __init__(self, uuid, file_name, container_uuid, triple_store_url, sparql_endpoint_url):
         self.uuid = uuid
         self.file_name = file_name
         self.container_uuid = container_uuid
-        self.sparql_endpoint = "https://localhost:8890/sparql"
+        self.sparql_endpoint = sparql_endpoint_url
+        self.triple_store_url = triple_store_url
 
     def delete_graph(self):
         proc = subprocess.Popen(["curl", 
@@ -16,7 +18,7 @@ class Triple_Store_Controller:
         "--user", 
         "dba:mysecret", 
         "--url", 
-        "http://localhost:8890/sparql-graph-crud-auth?graph-uri=http://localhost:8890/" + self.uuid, 
+        self.triple_store_url + "sparql-graph-crud-auth?graph-uri=" + self.triple_store_url + self.uuid, 
         "-X", 
         "DELETE"], # Change middle with real file name
         shell=False, 
@@ -46,7 +48,7 @@ class Triple_Store_Controller:
         "--user", 
         "dba:mysecret", 
         "--url", 
-        "http://localhost:8890/sparql-graph-crud-auth?graph-uri=http://localhost:8890/" + self.uuid, 
+        self.triple_store_url + "sparql-graph-crud-auth?graph-uri=" + self.triple_store_url + self.uuid, 
         "-T", 
         "Files_Storage/" + self.file_name + ".ttl"],
         shell=False, 

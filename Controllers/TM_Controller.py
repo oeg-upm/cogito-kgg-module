@@ -1,17 +1,19 @@
 import requests
 import os
+import sys
+sys.stdout.flush()
 
 
 class TM_Controller:
 
-    def __init__(self, json_info):
-        self.url = "http://localhost:8080"
+    def __init__(self, json_info, thing_manager_url):
+        self.url = thing_manager_url
         self.file_uuid = json_info['uuid']
         self.container_uuid = json_info['container']
         self.graph_file_path = ""
         self.file_name = json_info['name']
         self.file_format = json_info['format']
-        self.container_TD = "https://wothive.linkeddata.es/api/things/" + self.container_uuid
+        #self.container_TD = "https://wothive.linkeddata.es/api/things/" + self.container_uuid
         self.file_raw = ""
 
 
@@ -29,10 +31,6 @@ class TM_Controller:
         ]
         headers = {}
         payload = {}
-        print(url)
         response = requests.post(url, headers=headers, data=payload, files=files, verify=False)
         print(response.text)
         os.remove(graph_file_path)
-
-    def create_graph_TDs(self):
-        pass

@@ -1,0 +1,31 @@
+version: '2'
+services:
+  thing-manager:
+    image: acimmino/thing-manager:latest
+    #volumes:
+    # - ./wothive/configuration.json:/usr/src/wothive/configuration.json
+    ports:
+      - '8080:8080'
+
+  virtuoso:
+    container_name:
+      my_virtdb
+    image: 
+      openlink/virtuoso-opensource-7:latest
+    environment:
+      - DBA_PASSWORD=mysecret
+    ports:
+      - "1111:1111"
+      - "8890:8890"
+    volumes:
+      - ./virt_db:/database
+
+  kgg_module:
+    image: salva5297/kgg_module:latest
+    network_mode: host
+    volumes:
+     - ./kgg_manager.config:/usr/src/app/kgg_manager.config
+
+
+
+  

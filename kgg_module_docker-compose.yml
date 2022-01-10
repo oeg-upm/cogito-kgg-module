@@ -1,7 +1,0 @@
-version: '2'
-services:
-  kgg_module:
-    image: salva5297/kgg_module:latest
-    network_mode: host
-
-  
