@@ -1,17 +1,15 @@
-version: '2'
+version: "2"
 services:
   thing-manager:
     image: acimmino/thing-manager:latest
-    #volumes:
-    # - ./wothive/configuration.json:/usr/src/wothive/configuration.json
+    volumes:
+      - ./tm-config.json:/usr/src/things-manager/tm-config.json
     ports:
-      - '8080:8080'
+      - "8080:8080"
 
   virtuoso:
-    container_name:
-      my_virtdb
-    image: 
-      openlink/virtuoso-opensource-7:latest
+    container_name: my_virtdb
+    image: openlink/virtuoso-opensource-7:latest
     environment:
       - DBA_PASSWORD=mysecret
     ports:
@@ -24,8 +22,4 @@ services:
     image: salva5297/kgg_module:latest
     network_mode: host
     volumes:
-     - ./kgg_manager.config:/usr/src/app/kgg_manager.config
-
-
-
-  
+      - ./kgg_manager.config:/usr/src/app/kgg_manager.config

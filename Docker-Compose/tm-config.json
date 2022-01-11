@@ -1,0 +1,4 @@
+{ 
+  "wot directory" : "https://wothive.linkeddata.es/", 
+  "triple store" : "http://localhost:8890/sparql"
+}

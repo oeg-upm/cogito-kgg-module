@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 
 COPY . /usr/src/app/
 
-CMD python3 KGG_manager.py
+CMD python3 -u KGG_manager.py
