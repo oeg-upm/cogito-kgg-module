@@ -1,4 +1,5 @@
 { 
   "wot directory" : "https://wothive.linkeddata.es/", 
-  "triple store" : "http://localhost:8890/sparql"
+  "triple store" : "http://localhost:8890/sparql",
+  "host" : "https://data.cogito.iot.linkeddata.es"
 }
